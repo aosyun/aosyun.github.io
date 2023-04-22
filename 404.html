@@ -1,28 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>404-对不起！您访问的页面不存在</title>
-<style type="text/css">
-.head404{ width:580px; height:234px; margin:50px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/head404.png) no-repeat; }
-.txtbg404{ width:499px; height:169px; margin:10px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/txtbg404.png) no-repeat;}
-.txtbg404 .txtbox{ width:390px; position:relative; top:30px; left:60px;color:#eee; font-size:13px;}
-.txtbg404 .txtbox p {margin:5px 0; line-height:18px;}
-.txtbg404 .txtbox .paddingbox { padding-top:15px;}
-.txtbg404 .txtbox p a { color:#eee; text-decoration:none;}
-.txtbg404 .txtbox p a:hover { color:#FC9D1D; text-decoration:underline;}
+<meta charset="utf-8">
+<title>404</title>
+<script src="404/js/jquery-1.10.2.js"></script>
+<style>
+body {
+	background-color: #dfdad4;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.clock {
+	position: relative;
+	border-radius: 100%;
+	box-shadow: 2px 10px 10px 10px rgba(0, 0, 0, 0.3),
+		inset 2px 20px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.wrap {
+	width: 250px;
+	height: 250px;
+	border-radius: 100%;
+}
+.ringbit {
+	position: absolute;
+	width: 150px;
+	height: 350px;
+	border: 20px solid transparent;
+	border-radius: 90px;
+	margin: auto;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+	border-bottom: 20px solid white;
+}
+.ringbit:before {
+	content: "";
+	position: absolute;
+	width: 150px;
+	height: 350px;
+	border: 20px solid transparent;
+	border-radius: 90px;
+	margin: auto;
+	left: -15%;
+	bottom: 0;
+	right: 0;
+	top: 5%;
+	border-bottom: 20px solid rgba(0, 0, 0, 0.2);
+	filter: blur(5px);
+	z-index: -1;
+}
+
+.ring {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 20px solid black;
+	border-radius: 100%;
+	box-sizing: border-box;
+	border-left: 20px solid white;
+	border-right: 20px solid white;
+}
+.light {
+	position: absolute;
+	width: 50px;
+	height: 30px;
+	top: 0;
+	border-radius: 100%;
+	background-color: white;
+	box-shadow: 0 0 10px 5px white;
+}
+.lightray {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	top: 5%;
+	border-radius: 50px;
+	background-image: linear-gradient(45deg, transparent, transparent, white);
+	transform: rotate(-45deg);
+}
+.panel {
+	position: absolute;
+	height: 180px;
+	width: 180px;
+	background-color: black;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 100%;
+}
+.panel:after {
+	content: "RAMESH";
+	position: absolute;
+	top: 48px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: silver;
+	font-size: 11px;
+	text-align: center;
+}
+
+.string1,
+.string2,
+.string3 {
+	position: absolute;
+	width: 3px;
+	height: 180px;
+	border-top: 30px solid black;
+	border-bottom: 30px solid black;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+.string1 {
+	transform: rotate(45deg);
+}
+.string2 {
+	transform: rotate(135deg);
+}
+.string3 {
+	transform: rotate(0deg);
+	border-bottom: 200px solid black;
+	border-top: 0;
+}
+.mynum {
+	font-family: "verdana";
+	font-size: 1.2em;
+	color: white;
+}
+.mynum span {
+	width: 180px;
+	height: 180px;
+	position: absolute;
+	margin: auto;
+}
+.mynum span:nth-child(1) {
+	left: 160px;
+	right: 0;
+	top: 20px;
+	bottom: 0;
+}
+.mynum span:nth-child(11) {
+	left: 75px;
+	right: 0;
+	top: 20px;
+	bottom: 0;
+}
+.mynum span:nth-child(12) {
+	left: 113px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.mynum span:nth-child(2) {
+	left: 190px;
+	right: 0;
+	top: 80px;
+	bottom: 0;
+}
+.mynum span:nth-child(10) {
+	left: 25px;
+	right: 0;
+	top: 80px;
+	bottom: 0;
+}
+.mynum span:nth-child(3) {
+	left: 200px;
+	right: 0;
+	top: 155px;
+	bottom: 0;
+}
+.mynum span:nth-child(9) {
+	left: 10px;
+	right: 0;
+	top: 155px;
+	bottom: 0;
+}
+.mynum span:nth-child(4) {
+	left: 188px;
+	right: 0;
+	top: 235px;
+	bottom: 0;
+}
+.mynum span:nth-child(8) {
+	left: 30px;
+	right: 0;
+	top: 235px;
+	bottom: 0;
+}
+.mynum span:nth-child(5) {
+	left: 160px;
+	right: 0;
+	top: 270px;
+	bottom: 0;
+}
+.mynum span:nth-child(7) {
+	left: 80px;
+	right: 0;
+	top: 270px;
+	bottom: 0;
+}
+.mynum span:nth-child(6) {
+	left: 120px;
+	right: 0;
+	top: 280px;
+	bottom: 0;
+}
+.hour,
+.minute,
+.second {
+	position: absolute;
+	background-color: white;
+	margin: auto;
+	left: 0;
+	right: 0;
+	transform-origin: bottom center;
+}
+.hour {
+	height: 50px;
+	width: 5px;
+	top: 75px;
+	border-radius: 10px;
+}
+.minute {
+	height: 65px;
+	width: 3.5px;
+	top: 60px;
+	border-radius: 10px;
+}
+.second {
+	height: 70px;
+	width: 2px;
+	top: 55px;
+	border-radius: 3px;
+}
+.pin {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: orange;
+	border: 2px solid white;
+	border-radius: 100%;
+}
+@keyframes myanim1 {
+	to {
+		transform: rotate(360deg);
+	}
+}
 </style>
 </head>
+<body>
+<div class="light"></div>
+<div class="lightray"></div>
+<div class="clock">
+	<div class="wrap">
+		<div class="string1"></div>
+		<div class="string2"></div>
+		<div class="string3"></div>
+		<div class="ringbit"></div>
+		<div class="ring"></div>
+		<div class="panel"></div>
+		<div class="hour"></div>
+		<div class="minute"></div>
+		<div class="second"></div>
+		<div class="pin"></div>
+		<div class="mynum">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span>10</span>
+			<span>11</span>
+			<span>12</span>
+		</div>
+	</div>
+</div>
 
-<body bgcolor="#494949">
-   	<div class="head404"></div>
-   	<div class="txtbg404">
-  <div class="txtbox">
-      <p>对不起，您请求的页面不存在、或已被删除、或暂时不可用</p>
-      <p class="paddingbox">请点击以下链接继续浏览网页</p>
-      <p>》<a style="cursor:pointer" onclick="history.back()">返回上一页面</a></p>
-      <p>》<a href="#">返回网站首页</a></p>
-    </div>
-  </div>
+<script>
+var inc = 1000;
+myclock();
+function myclock() {
+	const mydate = new Date();
+	const hours = ((mydate.getHours() + 11) % 12) + 1;
+	const minutes = mydate.getMinutes();
+	const seconds = mydate.getSeconds();
+	const hdegree = hours * 30;
+	const mdegree = minutes * 6;
+	const sdegree = seconds * 6;
+	document.querySelector(".hour").style.transform = `rotate(${hdegree}deg)`;
+	document.querySelector(".minute").style.transform = `rotate(${mdegree}deg)`;
+	document.querySelector(".second").style.transform = `rotate(${sdegree}deg)`;
+}
+setInterval(myclock, inc);
+</script>
+
 </body>
 </html>
